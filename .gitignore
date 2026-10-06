@@ -1,0 +1,40 @@
+# ==============================
+# NEXUS - Git Ignore
+# ==============================
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET
+**/bin/
+**/obj/
+
+# Visual Studio Code
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Configuración sensible
+**/appsettings.json
+**/appsettings.Development.json
+
+# Variables de entorno
+.env
+.env.*
+
+# Paquetes
+packages/
+node_modules/

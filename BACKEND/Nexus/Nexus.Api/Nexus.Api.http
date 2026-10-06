@@ -1,0 +1,86 @@
+@Nexus_Api_HostAddress = https://localhost:7055
+
+### Obtener todos los items
+GET {{Nexus_Api_HostAddress}}/api/Items
+Accept: application/json
+
+###
+
+### Crear item de prueba
+POST {{Nexus_Api_HostAddress}}/api/Items
+Content-Type: application/json
+
+{
+  "titulo": "Naruto",
+  "descripcion": "Serie de anime agregada como prueba desde la API de NEXUS.",
+  "imagenUrl": null,
+  "idCategoria": 1
+}
+###
+
+### Actualizar item de prueba
+PUT {{Nexus_Api_HostAddress}}/api/Items/5
+Content-Type: application/json
+
+{
+  "titulo": "Naruto Shippuden",
+  "descripcion": "Serie de anime actualizada mediante la API de NEXUS.",
+  "imagenUrl": null,
+  "idCategoria": 1
+}
+###
+
+### Eliminar item de prueba
+DELETE {{Nexus_Api_HostAddress}}/api/Items/5
+Accept: application/json
+
+###
+
+### Prueba conexión Frontend - Backend
+POST {{Nexus_Api_HostAddress}}/api/Items
+Content-Type: application/json
+
+{
+  "titulo": "Dragon Ball",
+  "descripcion": "Elemento temporal para comprobar la conexión entre NEXUS y su API.",
+  "imagenUrl": null,
+  "idCategoria": 1
+}
+###
+
+### Eliminar Dragon Ball de prueba
+DELETE {{Nexus_Api_HostAddress}}/api/Items/6
+Accept: application/json
+
+###
+
+### Registrar usuario
+POST {{Nexus_Api_HostAddress}}/api/Auth/registro
+Content-Type: application/json
+
+{
+  "nombre": "Usuario NEXUS",
+  "correo": "usuario@nexus.com",
+  "password": "Nexus123!"
+}
+
+###
+
+### Iniciar sesión
+POST {{Nexus_Api_HostAddress}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "correo": "usuario@nexus.com",
+  "password": "Nexus123!"
+}
+###
+
+### Login con contraseña incorrecta
+POST {{Nexus_Api_HostAddress}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "correo": "usuario@nexus.com",
+  "password": "Incorrecta123!"
+}
