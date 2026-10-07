@@ -368,39 +368,104 @@
         </section>
 
 
-        <!-- =========================
-             SOBRE NEXUS
-        ========================== -->
+<!-- =========================
+     TU COLECCIÓN
+========================== -->
 
-        <section class="sobre-nexus">
+<section class="sobre-nexus" id="miColeccion">
 
-            <div class="sobre-contenido">
+    <div class="sobre-contenido">
 
-                <p class="sobre-etiqueta">
-                    TU COLECCIÓN
-                </p>
+        <p class="sobre-etiqueta">
+            TU COLECCIÓN
+        </p>
 
-                <h2>
-                    Haz de NEXUS algo tuyo.
-                </h2>
+        <!-- ESTADO SIN SESIÓN -->
+        <div id="coleccionInvitado">
 
-                <p>
-                    Inicia sesión, descubre contenido y guarda
-                    tus favoritos para crear una colección
-                    que reúna todo lo que te gusta.
-                </p>
+            <h2>
+                Haz de NEXUS algo tuyo.
+            </h2>
 
-                <button
-                    class="btn-secundario"
-                    id="btnCrearColeccion">
+            <p>
+                Inicia sesión, descubre contenido y guarda
+                tus favoritos para crear una colección
+                que reúna todo lo que te gusta.
+            </p>
 
-                    Crear mi colección
+            <button
+                class="btn-secundario"
+                id="btnCrearColeccion">
 
-                </button>
+                Crear mi colección
+
+            </button>
+
+        </div>
+
+        <!-- ESTADO CON SESIÓN -->
+        <div
+            id="coleccionUsuario"
+            class="coleccion-usuario"
+            style="display: none;">
+
+            <div class="coleccion-encabezado">
+
+                <div>
+                    <h2>
+                        Tu espacio en NEXUS.
+                    </h2>
+
+                    <p id="coleccionSaludo">
+                        Estos son los contenidos que forman parte
+                        de tu colección.
+                    </p>
+                </div>
+
+                <span
+                    class="coleccion-contador"
+                    id="coleccionContador">
+                    0 favoritos
+                </span>
 
             </div>
 
-        </section>
+            <div
+                class="coleccion-grid"
+                id="coleccionGrid">
+            </div>
+
+            <div
+                class="coleccion-vacia"
+                id="coleccionVacia"
+                style="display: none;">
+
+                <div class="coleccion-vacia-icono">
+                    ♡
+                </div>
+
+                <h3>
+                    Tu colección está esperando.
+                </h3>
+
+                <p>
+                    Explora NEXUS y pulsa el corazón de tus
+                    contenidos favoritos para agregarlos aquí.
+                </p>
+
+                <a
+                    href="#explorar"
+                    class="btn-secundario">
+                    Explorar contenido
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
     </main>
 
@@ -881,6 +946,240 @@
             <p class="usuarios-cargando">
                 Cargando usuarios...
             </p>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =========================
+     MODAL ADMINISTRAR CATÁLOGO
+========================== -->
+
+<div class="modal-catalogo" id="modalCatalogo">
+
+    <div
+        class="catalogo-overlay"
+        id="catalogoOverlay">
+    </div>
+
+    <div class="catalogo-contenido">
+
+        <button
+            type="button"
+            class="catalogo-cerrar"
+            id="catalogoCerrar"
+            aria-label="Cerrar">
+            ×
+        </button>
+
+        <div class="catalogo-encabezado">
+
+            <div>
+                <p class="catalogo-etiqueta">
+                    ADMINISTRACIÓN
+                </p>
+
+                <h2>
+                    Administrar catálogo
+                </h2>
+
+                <p>
+                    Crea, edita y elimina contenido
+                    disponible dentro de NEXUS.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="btn-nuevo-item"
+                id="btnNuevoItem">
+                + Nuevo elemento
+            </button>
+
+        </div>
+
+        <div
+            class="catalogo-lista"
+            id="catalogoLista">
+
+            <p class="catalogo-cargando">
+                Cargando catálogo...
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FORMULARIO DEL CATÁLOGO
+========================== -->
+
+<div
+    class="modal-item-admin"
+    id="modalItemAdmin">
+
+    <div
+        class="item-admin-overlay"
+        id="itemAdminOverlay">
+    </div>
+
+    <div class="item-admin-contenido">
+
+        <button
+            type="button"
+            class="item-admin-cerrar"
+            id="itemAdminCerrar"
+            aria-label="Cerrar">
+            ×
+        </button>
+
+        <p class="item-admin-etiqueta">
+            CATÁLOGO NEXUS
+        </p>
+
+        <h2 id="itemAdminTitulo">
+            Nuevo elemento
+        </h2>
+
+        <p class="item-admin-texto">
+            Completa la información del contenido.
+        </p>
+
+        <form id="itemAdminForm">
+
+            <div class="campo-item-admin">
+
+                <label for="itemTitulo">
+                    Título
+                </label>
+
+                <input
+                    type="text"
+                    id="itemTitulo"
+                    maxlength="150"
+                    placeholder="Ej. Bleach">
+
+            </div>
+
+            <div class="campo-item-admin">
+
+                <label for="itemDescripcion">
+                    Descripción
+                </label>
+
+                <textarea
+                    id="itemDescripcion"
+                    maxlength="500"
+                    rows="4"
+                    placeholder="Descripción del contenido"></textarea>
+
+            </div>
+
+            <div class="campo-item-admin">
+
+                <label for="itemImagenUrl">
+                    URL de imagen
+                </label>
+
+                <input
+                    type="text"
+                    id="itemImagenUrl"
+                    maxlength="500"
+                    placeholder="https://...">
+
+            </div>
+
+            <div class="campo-item-admin">
+
+                <label for="itemCategoria">
+                    Categoría
+                </label>
+
+                <select id="itemCategoria">
+
+                    <option value="1">
+                        Anime
+                    </option>
+
+                    <option value="2">
+                        TCG
+                    </option>
+
+                    <option value="3">
+                        Música
+                    </option>
+
+                </select>
+
+            </div>
+
+            <p
+                class="item-admin-error"
+                id="itemAdminError">
+            </p>
+
+            <button
+                type="submit"
+                class="btn-guardar-item">
+                Guardar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =========================================
+     CONFIRMAR ELIMINACIÓN DE ELEMENTO
+========================================= -->
+
+<div id="modalEliminarItem" class="modal-eliminar-item">
+
+    <div id="eliminarItemOverlay"
+         class="eliminar-item-overlay">
+    </div>
+
+    <div class="eliminar-item-contenido">
+
+        <div class="eliminar-item-icono">
+            !
+        </div>
+
+        <h2>
+            ¿Eliminar elemento?
+        </h2>
+
+        <p id="eliminarItemTexto">
+            Estás a punto de eliminar este elemento del catálogo.
+        </p>
+
+        <p class="eliminar-item-advertencia">
+            Esta acción no se puede deshacer.
+        </p>
+
+        <div class="eliminar-item-botones">
+
+            <button
+                type="button"
+                id="btnCancelarEliminarItem"
+                class="btn-cancelar-eliminar">
+
+                Cancelar
+
+            </button>
+
+            <button
+                type="button"
+                id="btnConfirmarEliminarItem"
+                class="btn-confirmar-eliminar">
+
+                Eliminar
+
+            </button>
 
         </div>
 

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Nexus.Api.Data;
 using Nexus.Api.DTOs;
 using Nexus.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Nexus.Api.Controllers
 {
@@ -73,6 +74,7 @@ namespace Nexus.Api.Controllers
 
         // POST: api/Items
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CrearItem(ItemRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Titulo))
@@ -118,8 +120,9 @@ namespace Nexus.Api.Controllers
 
         // PUT: api/Items/1
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ActualizarItem(
-            int id,
+                    int id,
             ItemRequest request)
         {
             var item = await _context.Items.FindAsync(id);
@@ -166,6 +169,7 @@ namespace Nexus.Api.Controllers
 
         // DELETE: api/Items/1
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EliminarItem(int id)
         {
             var item = await _context.Items.FindAsync(id);
